@@ -1,5 +1,5 @@
-public class Hello {
+public class Helloooo {
   public static void main(String[] args) {
-       System.out.println("Hello from Github Actions");
+       System.out.println("This will fail to compile");
   }
 }
