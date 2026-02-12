@@ -1,26 +1,19 @@
 name: Run Java Program
-
 on:
-push:
-branches: [ main ]
-workflow_dispatch:
-
+  push:
+    branches: [ main ]
+  pull_request:
 jobs:
-run-java:
-runs-on: ubuntu-latest
-
-steps:
-- name: Checkout code
-uses: actions/checkout@v4
-
-- name: Set up Java
-uses: actions/setup-java@v4
-with:
-distribution: temurin
-java-version: '17'
-
-- name: Compile
-run: javac Hello.java
-
-- name: Run
-run: java Hello
+  run-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile
+        run: javac Hello.java
+      - name: Run
+        run: java Hello
